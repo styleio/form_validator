@@ -68,21 +68,21 @@ class FormValidator{
   }
 
   setStatus(field, message, status) {
-    const successIcon = field.closest('.valid-form-wrap').querySelector('.icon-success');
-    const errorIcon = field.closest('.valid-form-wrap').querySelector('.icon-error');
-    const errorMessage = field.closest('.valid-form-wrap').querySelector('.error-message');
+    const successIcon = field.closest('.valid-form-wrap').querySelector('.valid-icon-success');
+    const errorIcon = field.closest('.valid-form-wrap').querySelector('.valid-icon-error');
+    const errorMessage = field.closest('.valid-form-wrap').querySelector('.valid-error-message');
 
     if (status === "success") {
-      if (errorIcon) { errorIcon.classList.add('hidden') }
+      if (errorIcon) { errorIcon.classList.add('valid-hidden') }
       if (errorMessage) { errorMessage.innerText = "" }
-      if (successIcon) { successIcon.classList.remove('hidden')}
+      if (successIcon) { successIcon.classList.remove('valid-hidden')}
       field.classList.remove('valid-input-error')
     }
 
     if (status === "error") {
-      if (successIcon) { successIcon.classList.add('hidden') }
+      if (successIcon) { successIcon.classList.add('valid-hidden') }
       errorMessage.innerText = message
-      if (errorIcon) {errorIcon.classList.remove('hidden') }
+      if (errorIcon) {errorIcon.classList.remove('valid-hidden') }
       field.classList.add('valid-input-error')
     }
   }
